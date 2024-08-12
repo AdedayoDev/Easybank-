@@ -55,7 +55,8 @@ const Footer = () => {
           <button className="bg-gradient-to-r from-lime-400 to-cyan-400 w-52 rounded-full text-white font-bold py-3">
             Request Invite
           </button>
-          <p className="text-xl text-gray-200/50">
+          <p className="text-xl text-gray-200/50 text-center md:text-start
+          ">
             &copy; Easybank All Rights Reserved
           </p>
         </div>
