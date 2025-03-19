@@ -76,7 +76,7 @@ return (
     {steps.map((step, index) => (
       <div key={index} className="mb-8 flex items-start">
         {/* Timeline Circle */}
-        <div className="w-10 h-10 flex items-center justify-center bg-blue-500 rounded-full text-white -ml-[45px]">
+        <div className="w-10 h-10 flex items-center justify-center bg-blue-500 rounded-full text-white -ml-[40px]">
           {step.icon}
         </div>
         {/* Text Content */}
