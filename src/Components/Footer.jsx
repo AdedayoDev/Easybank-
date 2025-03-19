@@ -4,7 +4,31 @@ import YT from "../Assets/icon-youtube.svg";
 import TW from "../Assets/icon-twitter.svg";
 import PT from "../Assets/icon-pinterest.svg";
 import IG from "../Assets/icon-instagram.svg";
-import logo from "../Assets/logo-white.svg";
+import logo from "../Assets/logo-white.svg.png";
+import { Link } from "react-router-dom";
+
+const Items = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "About",
+    href: "/pages/about",
+  },
+  {
+    name: "Products & Services",
+    href: "/pages/products-and-services",
+  },
+  {
+    name: "Pricing",
+    href: "/pages/pricing",
+  },
+  {
+    name: "Support",
+    href: "/pages/support",
+  },
+];
 
 const Footer = () => {
   return (
@@ -29,30 +53,22 @@ const Footer = () => {
           {/* About us side */}
           <div className="w-full">
             <ul className="grid grid-cols-1 md:grid-cols-2  text-center md:text-start gap-3 text-xl font-publicSans text-white">
-              <li>
-                <a href="#">About Us</a>
+              {
+                Items.map((items, index) => (
+                  <li key={index} className="relative group">
+                <Link to={items.href} className="hover:text-slate-200">
+                  {items.name}
+                </Link>
+                
               </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-              <li>
-                <a href="#">Careers</a>
-              </li>
-              <li>
-                <a href="#">Support</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
+                ))
+              }
             </ul>
           </div>
         </div>
         {/* Footer Right side */}
         <div className="flex flex-col items-center gap-5">
-          <button className="bg-gradient-to-r from-lime-400 to-cyan-400 w-52 rounded-full text-white font-bold py-3">
+          <button className="bg-gradient-to-r  from-cyan-700 to-lime-900 w-52 rounded-full text-white font-bold py-3">
             Request Invite
           </button>
           <p className="text-xl text-gray-200/50 text-center md:text-start
