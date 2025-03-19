@@ -73,7 +73,7 @@ const Footer = () => {
           </button>
           <p className="text-xl text-gray-200/50 text-center md:text-start
           ">
-            &copy; Easybank All Rights Reserved
+            &copy; Apaay All Rights Reserved
           </p>
         </div>
       </div>

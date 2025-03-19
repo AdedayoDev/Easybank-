@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from './Navbar'
 import Hero from './Hero'
 import LatestArticles, { HowItWorks } from './LatestArticles'
 import Banner from './Banner'
