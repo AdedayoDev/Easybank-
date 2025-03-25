@@ -3,8 +3,8 @@ import { FaUser, FaUserPlus, FaUserTie } from "react-icons/fa";
 
 const plans = [
   { icon: <FaUser className="text-blue-500 text-4xl" />, title: "Basic", price: "Free", description: "Essential features for everyday banking." },
-  { icon: <FaUserPlus className="text-green-500 text-4xl" />, title: "Premium", price: "$9.99/month", description: "Enhanced features for regular users." },
-  { icon: <FaUserTie className="text-purple-500 text-4xl" />, title: "Exclusive", price: "$29.99/month", description: "Comprehensive features for high-net-worth individuals." },
+  { icon: <FaUserPlus className="text-green-500 text-4xl" />, title: "Premium", price: "coming soon", description: "Enhanced features for regular users." },
+  { icon: <FaUserTie className="text-purple-500 text-4xl" />, title: "Exclusive", price: "coming soon", description: "Comprehensive features for high-net-worth individuals." },
 ];
 
 const IndividualPlans = () => {

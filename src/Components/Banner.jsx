@@ -1,5 +1,7 @@
+import { useState } from "react";
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import ContactForm from "./ContactUs/ContactForm";
 
 const benefits = [
   "Early access to the Apaay platform",
@@ -8,6 +10,8 @@ const benefits = [
 ];
 
 const Banner = () => {
+  const [popUp, setPopUp] = useState(false);
+  
   return (
     <section className="w-full bg-gradient-to-r from-lime-900 to-cyan-400 text-white py-12 px-6 text-center">
       <div className="w-10/12 md:w-8/12 mx-auto">
@@ -28,9 +32,11 @@ const Banner = () => {
           ))}
         </ul>
 
-        <button className="bg-white text-cyan-700 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition duration-300">
+        <button className="bg-white text-cyan-700 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition duration-300" onClick={() => setPopUp(true)}>
           Join the Waitlist
         </button>
+
+        <ContactForm isOpen={popUp} onClose={() => setPopUp(false)} />
       </div>
     </section>
   );

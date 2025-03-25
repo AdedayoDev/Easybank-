@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import FB from "../Assets/icon-facebook.svg";
 import YT from "../Assets/icon-youtube.svg";
 import TW from "../Assets/icon-twitter.svg";
@@ -6,6 +6,7 @@ import PT from "../Assets/icon-pinterest.svg";
 import IG from "../Assets/icon-instagram.svg";
 import logo from "../Assets/logo-white.svg.png";
 import { Link } from "react-router-dom";
+import ContactForm from "./ContactUs/ContactForm";
 
 const Items = [
   {
@@ -31,6 +32,7 @@ const Items = [
 ];
 
 const Footer = () => {
+  const [isPopUp, setIsPopUp] = useState(false);
   return (
     <section className="bg-slate-800 w-full h-auto py-16">
       <div className="w-9/12 mx-auto flex flex-col items-center md:flex-row gap-12 md:w-11/12 lg:w-9/12 md:gap-20 lg:gap-0 md:justify-between md:items-start">
@@ -53,26 +55,30 @@ const Footer = () => {
           {/* About us side */}
           <div className="w-full">
             <ul className="grid grid-cols-1 md:grid-cols-2  text-center md:text-start gap-3 text-xl font-publicSans text-white">
-              {
-                Items.map((items, index) => (
-                  <li key={index} className="relative group">
-                <Link to={items.href} className="hover:text-slate-200">
-                  {items.name}
-                </Link>
-                
-              </li>
-                ))
-              }
+              {Items.map((items, index) => (
+                <li key={index} className="relative group">
+                  <Link to={items.href} className="hover:text-slate-200">
+                    {items.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         {/* Footer Right side */}
         <div className="flex flex-col items-center gap-5">
-          <button className="bg-gradient-to-r  from-cyan-700 to-lime-900 w-52 rounded-full text-white font-bold py-3">
+          <button
+            onClick={() => setIsPopUp(true)}
+            className="hidden md:block lg:block font-bold text-white text-center bg-gradient-to-r from-cyan-700 to-lime-900 w-52 rounded-full py-3 md:py-2 lg:py-3 transition-all duration-300 ease-in-out hover:scale-105 hover:from-lime-900 hover:to-cyan-700 active:scale-95 shadow-md"
+          >
             Request Invite
           </button>
-          <p className="text-xl text-gray-200/50 text-center md:text-start
-          ">
+
+          <ContactForm isOpen={isPopUp} onClose={() => setIsPopUp(false)} />
+          <p
+            className="text-xl text-gray-200/50 text-center md:text-start
+          "
+          >
             &copy; Apaay All Rights Reserved
           </p>
         </div>

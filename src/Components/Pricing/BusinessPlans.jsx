@@ -2,9 +2,9 @@ import React from "react";
 import { FaRocket, FaChartLine, FaBuilding } from "react-icons/fa";
 
 const plans = [
-  { icon: <FaRocket className="text-blue-500 text-4xl" />, title: "Startup", price: "$19.99/month", description: "For small businesses and entrepreneurs." },
-  { icon: <FaChartLine className="text-green-500 text-4xl" />, title: "Growth", price: "$49.99/month", description: "For medium-sized businesses with growing transactions." },
-  { icon: <FaBuilding className="text-purple-500 text-4xl" />, title: "Enterprise", price: "Custom Pricing", description: "Custom solutions for large organizations." },
+  { icon: <FaRocket className="text-blue-500 text-4xl" />, title: "Startup", price: "coming soon", description: "For small businesses and entrepreneurs." },
+  { icon: <FaChartLine className="text-green-500 text-4xl" />, title: "Growth", price: "coming soon", description: "For medium-sized businesses with growing transactions." },
+  { icon: <FaBuilding className="text-purple-500 text-4xl" />, title: "Enterprise", price: "coming soon", description: "Custom solutions for large organizations." },
 ];
 
 const BusinessPlans = () => {

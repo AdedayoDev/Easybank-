@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import logo from "../Assets/logo.svg.png";
 import { Link } from "react-router-dom";
+import ContactForm from "./ContactUs/ContactForm";
+import { motion } from "framer-motion";
 
 const Items = [
   { name: "Home", href: "/" },
@@ -12,6 +14,7 @@ const Items = [
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPopUp, setIsPopUp] = useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,7 +25,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow relative z-20">
+    <header className="w-full bg-white shadow relative z-20">
       <div className="w-10/12 mx-auto py-4 flex justify-between items-center md:py-7 md:w-10/12 md:gap-3 lg:gap-0">
         <div>
           <img src={logo} alt="Logo" className="w-32" />
@@ -49,7 +52,12 @@ const NavBar = () => {
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
               </svg>
             ) : (
               <svg
@@ -59,26 +67,36 @@ const NavBar = () => {
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
               </svg>
             )}
           </button>
         </div>
-        <button className="hidden text-center bg-gradient-to-r from-cyan-700 to-lime-900 w-52 rounded-full text-white font-bold py-3 md:block lg:block md:py-2 lg:py-3">
+        <button
+          onClick={() => setIsPopUp(true)}
+          className="hidden md:block lg:block font-bold text-white text-center bg-gradient-to-r from-cyan-700 to-lime-900 w-52 rounded-full py-3 md:py-2 lg:py-3 transition-all duration-300 ease-in-out hover:scale-105 hover:from-lime-900 hover:to-cyan-700 active:scale-95 shadow-md"
+        >
           Get Early Access
         </button>
+
+        <ContactForm isOpen={isPopUp} onClose={() => setIsPopUp(false)} />
       </div>
-      
+
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-24 left-0 w-full bg-white shadow-lg p-5">
           <ul className="flex flex-col items-start space-y-4 font-publicSans text-slate-500">
             {Items.map((item, index) => (
               <li key={index} className="w-full">
-                <Link 
-                  to={item.href} 
-                  className="block w-full hover:text-slate-700" 
-                  onClick={closeMenu}  // Close menu when clicking a link
+                <Link
+                  to={item.href}
+                  className="block w-full hover:text-slate-700"
+                  onClick={closeMenu} // Close menu when clicking a link
                 >
                   {item.name}
                 </Link>
@@ -87,7 +105,7 @@ const NavBar = () => {
           </ul>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 
